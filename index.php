@@ -1,4 +1,4 @@
-<!-- Lees alle bestandjes even door chickie, ik heb alles erbijgezet zodat je het exta goed begrijpt x  -->
+
 <?php
 	require 'logic/connection/info.php';
 	// '../' is altijd terug naar de root map, als je al in de rootmap bent is dit niet nodig
