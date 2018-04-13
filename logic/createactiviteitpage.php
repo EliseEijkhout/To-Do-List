@@ -11,7 +11,7 @@
 
 if ($result->num_rows > 0) {
     echo "<h3>Selecteer de lijst waarin je je activiteit wilt plaatsen:</h3>
-    		<form action='activiteitcreate.php' method='post'>
+    		<form action='createactiviteit.php' method='post'>
     		<select name='lijsttitel'>";
     		// dit is gewoooon html in een php echotje
 		    // output data of each row

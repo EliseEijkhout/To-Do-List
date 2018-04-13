@@ -1,5 +1,5 @@
 <?php
-	require 'logic/connection/info.php';
+	require '../logic/connection/info.php';
 	// '../' is altijd terug naar de root map, als je al in de rootmap bent is dit niet nodig
 	// in info.php staan de gegevens van de database en de inglognaam en wachtwoord om erin te komen
 
@@ -7,7 +7,7 @@
 		    die("Connection failed: " . mysqli_connect_error());
 		}
 		// selecteer het id en de titel uit de tabel 'activiteiten'
-	$sql = "SELECT id, titel FROM lijsten";
+	$sql = "SELECT id, omschrijving FROM activiteiten";
 	// doe het maken van de connectie en de query die moet worden uitgevoerd in een variable "result"
 	$result = mysqli_query($conn, $sql);
 	// voer alles uit wat in result zit en stop het in de variable 'todolist'
@@ -34,29 +34,21 @@
 		<!-- hier laat je m echo-en wat je net hebt opgehaald, dit zie je dus ook staan op de pagina -->
 		<!-- Haal uit de array 'row' het id en de titel -->
 		<td><?php echo $row["id"];?></td>
-		<td><?php echo $row["titel"];?></td>
+		<td><?php echo $row["omschrijving"];?></td>
 
 		<td>
 			<!-- 'get' request kan je terugvinden in de url ('?id=x' staat er in dit geval achter) -->
-			<form method="get" action="logic/specificlistpage.php">
+			<form method="get" action="updateactiviteitpage.php">
 				<input type="hidden" name="id" value="<?php echo $row["id"];?>">
-				<button type="submit">Lijst openen</button>
-			</form>
-		</td>
-
-		<td>
-			<!-- 'get' request kan je terugvinden in de url ('?id=x' staat er in dit geval achter) -->
-			<form method="get" action="logic/updatepage.php">
-				<input type="hidden" name="id" value="<?php echo $row["id"];?>">
-				<button type="submit">Titel van lijst bewerken</button>
+				<button type="submit">Activiteit bewerken</button>
 			</form>
 		</td>
 
 		<td>
 			<!-- 'post'request kan je niet terugvinden in de url en gebeurt zoals jurn zegt onderwhaater. -->
-			<form method="post" action="logic/delete.php">
+			<form method="post" action="../logic/deleteactiviteit.php">
 	    		<input type="hidden" name="id" value="<?php echo $row["id"];?>">
-	    		<button type="submit">Lijst verwijderen</button>
+	    		<button type="submit">Activiteit verwijderen</button>
 			</form>
 		</td>
 	</tr>
@@ -71,13 +63,13 @@
 <?php
 	} // end if else
 ?>
-<!-- WOOOOH kom we gaan kijken wat er in createpage.php gebeurd!!! -->
-	<form method="get" action="logic/createpage.php">
-	   	 <button type="submit">Lijst Toevoegen</button>
+<!-- WOOOOH kom we gaan kijken wat er in activiteitcreatepage.php gebeurd!!! -->
+	<form method="get" action="../logic/createactiviteitpage.php">
+	   	 <button type="submit">Activiteit Toevoegen</button>
 	</form>
 
-	<form method="get" action="logic/activiteitenpage.php">
-	   	 <button type="submit">Activiteitenpagina</button>
+	<form method="get" action="../index.php">
+	   	 <button type="submit">Terug naar de Homepage</button>
 	</form>
 
 	<link rel="stylesheet" href="css/style.css">

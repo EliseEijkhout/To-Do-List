@@ -14,7 +14,7 @@
 			('$titel', '$text');";
 	// als de sql is uitgevoerd en de connectie goed was, ga terug naar createpage.php
 	if (mysqli_query($conn, $sql)) {
-	    header('Location: ../index.php');
+	    header('Location: ../logic/activiteitenpage.php');
 	} else {
  ?>
 <!DOCTYPE html>
